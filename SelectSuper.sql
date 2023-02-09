@@ -11,11 +11,16 @@ SELECT album_name, AVG(track_time) FROM track_list tl
 JOIN album_list al ON tl.album_id = al.id
 GROUP BY al.album_name;
 
+--SELECT artist_name FROM artist_list al 
+--JOIN artist_album aa ON al.id = aa.id 
+--JOIN album_list al2 ON al2.id = aa.id
+--WHERE al2.release_date <> 2020
+--GROUP BY al.artist_name;
+
 SELECT artist_name FROM artist_list al 
-JOIN artist_album aa ON al.id = aa.id 
+JOIN artist_album aa ON al.id = aa.id
 JOIN album_list al2 ON al2.id = aa.id
-WHERE al2.release_date <> 2020
-GROUP BY al.artist_name;
+WHERE artist_name NOT IN (SELECT artist_name WHERE release_date = 2020);
 
 SELECT collection_name FROM collection_list cl 
 JOIN collection_album_track cat ON cat.collection_id = cl.id
