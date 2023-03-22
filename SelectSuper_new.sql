@@ -35,8 +35,8 @@ JOIN track_list tl ON cat.track_id =tl.id
 JOIN album_list al ON tl.album_id = al.id
 JOIN artist_album aa ON aa.album_id = al.id 
 JOIN artist_list al2 ON aa.artist_id = al2.id 
-WHERE al2.artist_name = 'Найк Борзов'
-GROUP BY cl.collection_name;
+WHERE al2.artist_name = 'Найк Борзов';
+--GROUP BY cl.collection_name;
 
 SELECT count(genre_id), album_name FROM album_list al 
 JOIN artist_album aa ON aa.album_id = al.id
